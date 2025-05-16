@@ -69,7 +69,7 @@ const Home = () => {
           <div key={id} className="game-card">
             <div className="game-info">
               <h3 className="game-day">{day}, {date}</h3>
-              <p className="confirmed">{confirmed} players confirmed</p>
+              <p className="confirmed">{confirmed} {confirmed === 1 ? 'player' : 'players'} confirmed</p>
               <p className="confirmed">{getStatusMessage(availability[id])}</p>
             </div>
 
