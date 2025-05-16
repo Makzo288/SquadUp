@@ -1,0 +1,153 @@
+:root {
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --primary-red: #e50914;
+  --background-dark: #121212;
+  --text-light: #ffffff;
+  --button-hover-dark: #b20710;
+
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--background-dark);
+  color: var(--text-light);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+.homepage {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.game-card {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.game-day {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.confirmed {
+  color: #cccccc;
+  font-size: 0.95rem;
+}
+
+/* Responsive: show confirmed below on small screens */
+@media (max-width: 480px) {
+  .game-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .confirmed {
+    order: 2;
+  }
+}
+
+.availability-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition-speed), color var(--transition-speed), border var(--transition-speed);
+}
+
+/* Ripple effect */
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease-out, height 0.4s ease-out;
+}
+
+.btn:active::after {
+  width: 200%;
+  height: 500%;
+}
+
+.available {
+  background-color: #1cbf73;
+  color: var(--text-light);
+}
+
+.available:hover {
+  background-color: #169f60;
+}
+
+.unavailable {
+  background-color: var(--primary-red);
+  color: var(--text-light);
+}
+
+.unavailable:hover {
+  background-color: var(--button-hover-dark);
+}
+
+.change-section {
+  display: flex;
+  justify-content: center;
+}
+
+.change-section .btn {
+  border: 2px solid var(--primary-red);
+  background-color: transparent;
+  color: var(--primary-red);
+}
+
+.change-section .btn:hover {
+  background-color: rgba(229, 9, 20, 0.1);
+}
